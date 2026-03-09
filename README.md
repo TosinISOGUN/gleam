@@ -1,6 +1,6 @@
 # Gleam - Professional Cleaning Services in Ibadan
 
-Gleam (Gleam Cleaning Co.) is a premium cleaning service provider based in Ibadan, Oyo State, Nigeria. We specialize in bringing a professional touch to homes and offices, ensuring every space we touch sparkles and shines.
+Gleam (Gleam Cleaning Co.) is a premium cleaning service provider based in Ibadan, Oyo State, Nigeria. We specialize in bringing a professional touch to homes and offices, ensuring every space we touch sparkles and shines!
 
 ## 🌟 Key Features
 
