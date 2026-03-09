@@ -1,7 +1,8 @@
-import { Shield, Heart, Users, Target } from "lucide-react";
+import { Shield, Heart, Users, Target, MapPin } from "lucide-react";
 import Layout from "@/components/Layout";
 import AnimatedSection from "@/components/AnimatedSection";
 import aboutImage from "@/assets/about-team.jpg";
+import { SERVICE_AREAS } from "@/lib/constants";
 
 const values = [
   { icon: Shield, title: "Trust & Reliability", desc: "We show up on time, every time. Your space and belongings are safe with us." },
@@ -60,6 +61,44 @@ const About = () => {
               </div>
             </AnimatedSection>
           </div>
+        </div>
+      </section>
+
+      {/* Service Areas */}
+      <section className="section-padding bg-primary">
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection>
+            <div className="text-center mb-12">
+              <span className="text-primary-foreground/70 font-body font-semibold text-sm tracking-wider uppercase">
+                Our Reach
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mt-3">
+                Areas We Serve in Ibadan
+              </h2>
+              <p className="text-primary-foreground/70 font-body mt-4 max-w-xl mx-auto">
+                We proudly serve homes and offices across all major areas in Ibadan, Oyo State.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {SERVICE_AREAS.map((area, i) => (
+              <AnimatedSection key={area} delay={i * 0.05}>
+                <div className="flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm rounded-xl px-5 py-4 hover:bg-primary-foreground/15 transition-colors">
+                  <MapPin className="w-4 h-4 text-accent shrink-0" />
+                  <span className="text-primary-foreground font-body text-sm font-medium">
+                    {area}
+                  </span>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          <AnimatedSection delay={0.3}>
+            <p className="text-center text-primary-foreground/50 font-body text-xs mt-8 uppercase tracking-wider">
+              Don't see your area? Contact us — we likely cover it too!
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 

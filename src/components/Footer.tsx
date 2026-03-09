@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Sparkles, MapPin, Phone, Mail } from "lucide-react";
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, WHATSAPP_LINK, WORKING_HOURS_WEEKDAYS, WORKING_HOURS_SATURDAY } from "@/lib/constants";
 
 const Footer = () => {
   return (
@@ -54,13 +55,28 @@ const Footer = () => {
                 <MapPin className="w-4 h-4 mt-0.5 text-accent shrink-0" />
                 <span>Ibadan, Oyo State, Nigeria</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-primary-foreground/70">
+              <a 
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-accent transition-colors"
+              >
                 <Phone className="w-4 h-4 text-accent shrink-0" />
-                <span>+234 800 000 0000</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-primary-foreground/70">
+                <span>{CONTACT_PHONE_DISPLAY}</span>
+              </a>
+              <a 
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-accent transition-colors"
+              >
                 <Mail className="w-4 h-4 text-accent shrink-0" />
-                <span>hello@gleamclean.ng</span>
+                <span>{CONTACT_EMAIL}</span>
+              </a>
+              <div className="flex items-start gap-2 text-sm text-primary-foreground/70 pt-2 border-t border-primary-foreground/10">
+                <div className="flex flex-col gap-1">
+                  <p className="text-[10px] uppercase tracking-wider text-accent font-semibold">Working Hours</p>
+                  <p className="text-xs">{WORKING_HOURS_WEEKDAYS}</p>
+                  <p className="text-xs">{WORKING_HOURS_SATURDAY}</p>
+                </div>
               </div>
             </div>
           </div>

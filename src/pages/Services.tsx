@@ -2,6 +2,7 @@ import { Home, Building2, Sparkles, ArrowUpDown, Clock, Paintbrush, ArrowRight }
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import AnimatedSection from "@/components/AnimatedSection";
+import { WHATSAPP_LINK } from "@/lib/constants";
 
 const services = [
   {
@@ -57,7 +58,7 @@ const Services = () => {
                 Cleaning Solutions for Every <span className="text-primary">Space</span>
               </h1>
               <p className="text-muted-foreground font-body text-lg leading-relaxed">
-                From homes to offices, we offer a full range of professional cleaning services across Ibadan, Oyo State.
+                From homes to offices, we offer a full range of professional cleaning services across all major areas in Ibadan — Bodija, Jericho, Oluyole, Akobo, and beyond.
               </p>
             </div>
           </AnimatedSection>
@@ -110,12 +111,14 @@ const Services = () => {
             <p className="text-primary-foreground/80 font-body text-lg mb-8">
               We're happy to create a tailored package that fits your needs and budget.
             </p>
-            <Link
-              to="/contact"
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-3.5 rounded-lg font-semibold font-body text-base hover:opacity-90 transition-opacity"
             >
               Get a Quote <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </AnimatedSection>
         </div>
       </section>

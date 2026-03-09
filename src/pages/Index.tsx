@@ -3,8 +3,16 @@ import { motion } from "framer-motion";
 import { Sparkles, Home, Building2, Star, ArrowRight, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import AnimatedSection from "@/components/AnimatedSection";
+import CountUp from "@/components/CountUp";
 import heroImage from "@/assets/hero-clean.jpg";
+import { WHATSAPP_LINK } from "@/lib/constants";
 
+const stats = [
+  { value: 200, suffix: "+", label: "Happy Clients" },
+  { value: 500, suffix: "+", label: "Spaces Cleaned" },
+  { value: 100, suffix: "%", label: "Satisfaction" },
+  { value: 24, suffix: "/7", label: "Support" },
+];
 
 const services = [
   {
@@ -78,12 +86,14 @@ const Index = () => {
               Professional home and office cleaning services in Ibadan, Oyo State. We bring the gleam to every corner.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/contact"
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-accent text-accent-foreground px-8 py-3.5 rounded-lg font-semibold font-body text-base hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
               >
                 Book a Cleaning <ArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
               <Link
                 to="/services"
                 className="border border-primary-foreground/30 text-primary-foreground px-8 py-3.5 rounded-lg font-semibold font-body text-base hover:bg-primary-foreground/10 transition-colors text-center"
@@ -128,7 +138,7 @@ const Index = () => {
                     <h3 className="font-display text-2xl font-semibold text-foreground mb-3">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground font-body leading-relaxed max-w-lg">
+                    <p className="text-muted-foreground font-body leading-relaxed max-lg">
                       {service.desc}
                     </p>
                   </div>
@@ -152,6 +162,24 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Stats - Relocated for better flow */}
+      <section className="bg-primary py-20 border-none shadow-inner">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="font-display text-5xl md:text-6xl font-bold text-primary-foreground mb-2">
+                  <CountUp end={stat.value} suffix={stat.suffix} />
+                </div>
+                <div className="font-body text-primary-foreground/70 text-[10px] md:text-xs uppercase tracking-[0.2em] font-semibold">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us */}
       <section className="section-padding bg-secondary">
         <div className="max-w-7xl mx-auto">
@@ -167,7 +195,7 @@ const Index = () => {
                 {[
                   "Trained and vetted cleaning professionals",
                   "Eco-friendly cleaning products used",
-                  "Flexible scheduling — we work around you",
+                  "Flexible scheduling \\u2014 we work around you",
                   "100% satisfaction guarantee on every job",
                   "Serving homes and offices across Ibadan",
                 ].map((item) => (
@@ -192,11 +220,16 @@ const Index = () => {
                       ))}
                     </div>
                     <p className="text-muted-foreground font-body text-sm leading-relaxed mb-3">
-                      "{t.text}"
+                      \"{t.text}\"
                     </p>
-                    <span className="text-foreground font-body font-semibold text-sm">
-                      — {t.name}
-                    </span>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center font-display text-xs font-bold text-primary">
+                        {t.name.split(' ').map(n => n[0]).join('')}
+                      </div>
+                      <span className="text-foreground font-display font-bold text-xs tracking-wider uppercase italic">
+                        {t.name}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -215,12 +248,14 @@ const Index = () => {
             <p className="text-primary-foreground/80 font-body text-lg mb-8">
               Get in touch today and let us bring the sparkle to your home or office.
             </p>
-            <Link
-              to="/contact"
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-3.5 rounded-lg font-semibold font-body text-base hover:opacity-90 transition-opacity"
             >
               Contact Us <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </AnimatedSection>
         </div>
       </section>

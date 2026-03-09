@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { MapPin, Phone, Mail, Send, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Send, Clock, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 import Layout from "@/components/Layout";
 import AnimatedSection from "@/components/AnimatedSection";
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, WHATSAPP_LINK, WORKING_HOURS_WEEKDAYS, WORKING_HOURS_SATURDAY } from "@/lib/constants";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", service: "", message: "" });
@@ -87,7 +88,7 @@ const Contact = () => {
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-input bg-background font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
-                      placeholder="+234 800 000 0000"
+                      placeholder={CONTACT_PHONE_DISPLAY}
                       maxLength={20}
                     />
                   </div>
@@ -164,8 +165,25 @@ const Contact = () => {
                     <div>
                       <h4 className="font-body font-semibold text-foreground text-sm">Phone</h4>
                       <p className="text-muted-foreground font-body text-sm mt-1">
-                        +234 800 000 0000
+                        {CONTACT_PHONE_DISPLAY}
                       </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                      <MessageCircle className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-body font-semibold text-foreground text-sm">WhatsApp</h4>
+                      <a 
+                        href={WHATSAPP_LINK}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline font-body text-sm mt-1 block font-medium"
+                      >
+                        Chat with us now
+                      </a>
                     </div>
                   </div>
 
@@ -176,7 +194,7 @@ const Contact = () => {
                     <div>
                       <h4 className="font-body font-semibold text-foreground text-sm">Email</h4>
                       <p className="text-muted-foreground font-body text-sm mt-1">
-                        hello@gleamclean.ng
+                        {CONTACT_EMAIL}
                       </p>
                     </div>
                   </div>
@@ -188,9 +206,9 @@ const Contact = () => {
                     <div>
                       <h4 className="font-body font-semibold text-foreground text-sm">Working Hours</h4>
                       <p className="text-muted-foreground font-body text-sm mt-1">
-                        Mon – Sat: 7:00 AM – 7:00 PM
+                        {WORKING_HOURS_WEEKDAYS}
                         <br />
-                        Sunday: By appointment
+                        {WORKING_HOURS_SATURDAY}
                       </p>
                     </div>
                   </div>
